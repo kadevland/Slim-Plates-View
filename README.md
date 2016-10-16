@@ -61,8 +61,8 @@ This component propose a feature `is_url()` function to your Plates templates. Y
     <h1>Categories List</h1>
     <ul>
 	---
-	$link=path_for('categorie', { 'slug': 'my categorie' });
-        <li class="<?=$this->is_url($link)?'active':''?>"><a href="<?=$link?>">Josh</a></li>
+	$link=path_for('categorie', { 'slug': 'my-categorie' });
+        <li class="<?=$this->is_url($link)?'active':''?>"><a href="<?=$link?>">My categorie</a></li>
 	---
     </ul>
     
