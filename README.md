@@ -54,6 +54,17 @@ This component exposes a custom `path_for()` function to your Plates templates. 
     <ul>
         <li><a href="<?= $this->path_for('profile', { 'name': 'josh' }) ?>">Josh</a></li>
     </ul>
+
+This component propose a feature `is_url()` function to your Plates templates. You can use this function to check if URL match witch Request URL/Path. This is an example Plates template:
+
+   
+    <h1>Categories List</h1>
+    <ul>
+	---
+	$link=path_for('categorie', { 'slug': 'my categorie' });
+        <li class="<?=$this->is_url($link)?'active':''?>"><a href="<?=$link?>">Josh</a></li>
+	---
+    </ul>
     
 
 ## Testing
