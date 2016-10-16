@@ -34,6 +34,7 @@ class PlatesViewExtension implements ExtensionInterface
     {
         $engine->registerFunction('path_for', array($this, 'pathFor'));
         $engine->registerFunction('base_url', array($this, 'baseUrl'));
+         $engine->registerFunction('is_url', array($this, 'isUrl'));
     }
 
     public function pathFor($name, $data = [], $queryParams = [], $appName = 'default')
@@ -61,4 +62,22 @@ class PlatesViewExtension implements ExtensionInterface
     {
         $this->uri = $baseUrl;
     }
+    
+    /**
+     * check if  url macth witch Slim\Http\Uri else return null
+     *
+     * @param string
+     * @return booleen if uri defined by Slim\Http\Uri else null
+     */	
+
+    public function isUrl($url){
+	
+	 if (method_exists($this->uri, 'getPath')) {
+            return $this->uri->getPath()==$url;
+	 }
+	
+	return null;
+
+    }
+	
 }
