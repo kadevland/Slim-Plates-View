@@ -25,7 +25,7 @@ $container = $app->getContainer();
 
 // Register Plates View helper
 $container['view'] = function ($c) {
-    $view = new \Kadevland\Slim-Plates-View\PlatesView('path/to/templates','extention');
+    $view = new \Kadevland\Slim\Plates\View\PlatesView('path/to/templates','extention');
     
     // Instantiate and add Slim specific extension 
     $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
@@ -52,7 +52,7 @@ This component exposes a custom `path_for()` function to your Plates templates. 
    
     <h1>User List</h1>
     <ul>
-        <li><a href="<?php echo  path_for('profile', { 'name': 'josh' }) ?>">Josh</a></li>
+        <li><a href="<?= $this->path_for('profile', { 'name': 'josh' }) ?>">Josh</a></li>
     </ul>
     
 
